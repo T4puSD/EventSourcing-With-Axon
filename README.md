@@ -100,7 +100,7 @@ Bellow is the result from `GET bank-accounts/{accountNumber}` endpoint:
   "status": "ACTIVATED"
 }
 ```
-This is the picture of the h2-console: 
+This is the picture of the h2-console:   
 ![H2Database](https://github.com/T4puSD/CQRS-EventSourcing-With-Axon/raw/master/commons/h2-console.png "H2DatabaseAggregatedResult")
 
 if we can match the last row's account number with our example then we can see that account has 45 BDT after all of the transactions.
