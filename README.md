@@ -19,6 +19,12 @@ This is the Swagger front page for the project.
 
 ![SwaggerIndexHtml](https://github.com/T4puSD/CQRS-EventSourcing-With-Axon/raw/master/commons/Swaggerui.png "SwaggerUI")
 
+This page is pretty much self explanatory. We have 3 method for executing commands and 2 method for query.
+* `POST bank-accounts/` endpoint is to create a new account
+* Other two endpoint in the command section are for credit and debit ammount from a account
+* The `GET bank-accounts/{accountNumber}` endpoint gets data from h2 database. 
+* and `GET bank-accounts/{accountNumber}/events` endpoint gets data from event store that is stored into axon server.
+
 ## How this project is designed?
 As this project is a command query responsibility segragation project. We have to separate all the command and events for the sake of it.
 
@@ -78,8 +84,9 @@ If a person open a bank accont with 20 BDT. Then debit 15 BDT for a BallPen. Aga
 ]
 ```
 These are the result retrived from the axon-server. 
+![AxonServerConsole](https://github.com/T4puSD/CQRS-EventSourcing-With-Axon/raw/master/commons/AxonServerEvents.png "AxonServer")
 
-But the aggregated data can also be seen from a second database( for this project from h2-database) that his aggegated balance is now 45 BDT.
+But the aggregated data can also be seen from a second database( for this project from h2-database) that his aggegated balance is now 45 BDT. 
 ```json
 {
   "id": "60d9c622-d434-4ad3-9fdd-64bf1bfa865b",
@@ -88,5 +95,6 @@ But the aggregated data can also be seen from a second database( for this projec
   "status": "ACTIVATED"
 }
 ```
+![H2Database](https://github.com/T4puSD/CQRS-EventSourcing-With-Axon/raw/master/commons/AxonServerEvents.png "H2DatabaseAggregatedResult")
 
-## Swagger API Documentation and controller page.
+if we can match the last row's account number with our example then we can see that account has 45 BDT after all of the transactions.
