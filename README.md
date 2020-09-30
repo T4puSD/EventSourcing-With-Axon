@@ -1,6 +1,7 @@
 # Event Sourcing with Axon and CQRS in Spring Boot
 
 This is a demo project for learning event sourcing with axon framework and cqrs desing pattern.
+Swagger api doucmentation framework is also implementated for learning purpose.
 
 ## What is event Sourcing?
 Event sourcing is a way to store events that occur in a business domain. For instance, In this demo project it is solving a banking domain problem. So, every events that occur in the domain needs to be stored for later review of a transaction or audit. Event sourcing helps in such conditions, it store every event in a formatted order for recalculation or re-evaluation. So perfectly naming all the event is crucial in this type of design.
@@ -10,6 +11,13 @@ The full form of CQRS means Command Query Responsibility Segragation. It means t
 
 ## What is Axon?
 Axon is a framework for solving such programming challenges. It helps programmer by leveraging all the configuration and abstract them. We as a spring boot developer just have to use annotation to solve the connection puzzle. To make it more easier axon now also provide their own axon server so that we can use that server as event store(Event store is the place/database where all the events reside).
+
+## What is Swagger?
+[Swagger](https://swagger.io/) is a api documentation genaration framework. We can easily create documentation of our rest api with the help of swagger dependency in spring boot. We can also use swagger's index.html page to view and call our controller methods from the browser.
+
+This is the Swagger front page for the project.
+
+![SwaggerIndexHtml](https://github.com/T4puSD/CQRS-EventSourcing-With-Axon/raw/master/commons/Swaggerui.png "SwaggerUI")
 
 ## How this project is designed?
 As this project is a command query responsibility segragation project. We have to separate all the command and events for the sake of it.
@@ -80,3 +88,5 @@ But the aggregated data can also be seen from a second database( for this projec
   "status": "ACTIVATED"
 }
 ```
+
+## Swagger API Documentation and controller page.
