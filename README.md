@@ -105,8 +105,15 @@ This is the picture of the h2-console:
 
 if we can match the last row's account number with our example then we can see that account has 45 BDT after all of the transactions.
 
+## Requriements To Run
+* Java jdk-11+
+* Axon Server
+* Gradle
+
 ## How to Run The project
 **U need to have axon server running in the background before running this project.**
 Download Axon-Server from [Here](https://axoniq.io/product-overview/axon-server)   
-Run axon server with the command `java -jar <axonservername>.jar` with this command.  
+
+Run axon server with the command `java -jar <axonservername>.jar` with this command.   
+
 After you are sure that axon server is up and running then u can build and run this project with gradle with this command `gradle bootRun` by going into the project directory.
