@@ -116,4 +116,6 @@ Download Axon-Server from [Here](https://axoniq.io/product-overview/axon-server)
 
 Run axon server with the command `java -jar <axonservername>.jar` with this command.   
 
-After you are sure that axon server is up and running then u can build and run this project with gradle with this command `gradle bootRun` by going into the project directory.
+After you are sure that axon server is up and running then you can build and run this project with gradle with this command `gradle bootRun` by going into the project directory.   
+Access Swagger-ui html page by going into this url `localhost:8080/swagger-ui/index.html` and then you can execute those methods there.   
+
