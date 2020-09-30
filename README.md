@@ -46,7 +46,8 @@ Every time a new command gets executed a new associated event gets generated for
 When a new command is triggered through the controller it declare the command and event listener generate appropriate event for that command and it the the responsibility of the events to oprate on the domain model. For instance if CreditMoneyCommand is triggered then MoneyCreditEvent gets generated and operates on the entity model and increase the account balance. Axon framework will store this event into the axon server's event store.
 
 ## A Simple Example Of TransactionEvents
-If a person open a bank accont with 20 BDT. Then debit 15 BDT for a BallPen. Again if he want to debit 10 BDT for pencil but as his balance will be now in negative in the bank the bankput a hold status in his account number. To reactivate the account he puts 50 BDT in his bank account. So his account will now have 45 BDT. But there was a series of events happned at the bank server. As we are using event sourcing we can see all the events happned on his account.
+If a person open a bank accont with 20 BDT. Then debit 15 BDT for a BallPen. Again if he want to debit 10 BDT for pencil but as his balance will be now in negative in the bank the bankput a hold status in his account number. To reactivate the account he puts 50 BDT in his bank account. So his account will now have 45 BDT. But there was a series of events happned at the bank server. As we are using event sourcing we can see all the events happned on his account. 
+Bellow is the result of `GET bank-accounts/{accountNumber}/envents` endpoint: 
 ```json
 [
   {
@@ -82,11 +83,15 @@ If a person open a bank accont with 20 BDT. Then debit 15 BDT for a BallPen. Aga
     "status": "ACTIVATED"
   }
 ]
-```
-These are the result retrived from the axon-server. 
+``` 
+
+This is the event viewer built into axon server console page. 
 ![AxonServerConsole](https://github.com/T4puSD/CQRS-EventSourcing-With-Axon/raw/master/commons/AxonServerEvents.png "AxonServer")
 
+We can see each event is stored in a formatted manner.
+
 But the aggregated data can also be seen from a second database( for this project from h2-database) that his aggegated balance is now 45 BDT. 
+Bellow is the result from `GET bank-accounts/{accountNumber}` endpoint: 
 ```json
 {
   "id": "60d9c622-d434-4ad3-9fdd-64bf1bfa865b",
@@ -95,6 +100,6 @@ But the aggregated data can also be seen from a second database( for this projec
   "status": "ACTIVATED"
 }
 ```
-![H2Database](https://github.com/T4puSD/CQRS-EventSourcing-With-Axon/raw/master/commons/AxonServerEvents.png "H2DatabaseAggregatedResult")
+![H2Database](https://github.com/T4puSD/CQRS-EventSourcing-With-Axon/raw/master/commons/h2-console.png "H2DatabaseAggregatedResult")
 
 if we can match the last row's account number with our example then we can see that account has 45 BDT after all of the transactions.
