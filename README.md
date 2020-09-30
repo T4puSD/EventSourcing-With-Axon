@@ -47,7 +47,7 @@ When a new command is triggered through the controller it declare the command an
 
 ## A Simple Example Of TransactionEvents
 If a person open a bank accont with 20 BDT. Then debit 15 BDT for a BallPen. Again if he want to debit 10 BDT for pencil but as his balance will be now in negative in the bank the bankput a hold status in his account number. To reactivate the account he puts 50 BDT in his bank account. So his account will now have 45 BDT. But there was a series of events happned at the bank server. As we are using event sourcing we can see all the events happned on his account. 
-Bellow is the result of `GET bank-accounts/{accountNumber}/envents` endpoint: 
+Bhis is the result of `GET bank-accounts/{accountNumber}/envents` endpoint: 
 ```json
 [
   {
@@ -100,6 +100,7 @@ Bellow is the result from `GET bank-accounts/{accountNumber}` endpoint:
   "status": "ACTIVATED"
 }
 ```
+This is the picture of the h2-console: 
 ![H2Database](https://github.com/T4puSD/CQRS-EventSourcing-With-Axon/raw/master/commons/h2-console.png "H2DatabaseAggregatedResult")
 
 if we can match the last row's account number with our example then we can see that account has 45 BDT after all of the transactions.
