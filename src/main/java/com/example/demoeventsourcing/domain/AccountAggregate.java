@@ -68,15 +68,34 @@ public class AccountAggregate {
 
     @EventSourcingHandler
     protected void on(MoneyDebitedEvent moneyDebitedEvent){
+        if(this.status.equals(Status.HOLD.toString())){
+            AggregateLifecycle.apply(new AccountHeldEvent(moneyDebitedEvent.id,Status.HOLD));
+            return;
+        }
         if(this.accountBalance >=0 & (this.accountBalance - moneyDebitedEvent.debitAmount) <0){
             AggregateLifecycle.apply(new AccountHeldEvent(moneyDebitedEvent.id,Status.HOLD));
         }
-
         this.accountBalance -= moneyDebitedEvent.debitAmount;
     }
 
     @EventSourcingHandler
     protected void on(AccountHeldEvent accountHeldEvent){
         this.status = String.valueOf(accountHeldEvent.status);
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public Double getAccountBalance() {
+        return accountBalance;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public String getStatus() {
+        return status;
     }
 }

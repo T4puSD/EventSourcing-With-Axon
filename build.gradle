@@ -28,6 +28,10 @@ dependencies {
     }
 }
 
+configurations{
+    compile.exclude group: 'axon-server-connector'
+}
+
 test {
     useJUnitPlatform()
 }
