@@ -51,7 +51,7 @@ If a person:
 * Then debit 15 BDT for a BallPen. 
 * Again he debit 10 BDT for pencil.
 * But as his balance is in negative the bank put a hold status in his account.
-* To reactivate the account he puts 50 BDT in his bank account.   
+* To reactivate the account he puts 50 BDT in his bank account.
 So his account will now have 45 BDT. But there was a series of events happned at the bank server. As we are using event sourcing we can see all the events happned on his account.   
 
 This is the result of `GET bank-accounts/{accountNumber}/envents` endpoint: 
@@ -92,7 +92,8 @@ This is the result of `GET bank-accounts/{accountNumber}/envents` endpoint:
 ]
 ``` 
 
-This is the event viewer built into axon server console page. 
+This is the event viewer built into axon server console page.   
+
 ![AxonServerConsole](https://github.com/T4puSD/CQRS-EventSourcing-With-Axon/raw/master/commons/AxonServerEvents.png "AxonServer")
 
 We can see each event is stored in a formatted manner.
@@ -108,6 +109,7 @@ Bellow is the result from `GET bank-accounts/{accountNumber}` endpoint:
 }
 ```
 This is the picture of the h2-console:   
+
 ![H2Database](https://github.com/T4puSD/CQRS-EventSourcing-With-Axon/raw/master/commons/h2-console.png "H2DatabaseAggregatedResult")
 
 If we match the last row's account number with our example then we can see that the account has 45 BDT after all of those transactions.
