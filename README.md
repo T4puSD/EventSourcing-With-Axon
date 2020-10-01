@@ -51,7 +51,8 @@ If a person:
 * Then debit 15 BDT for a BallPen. 
 * Again he debit 10 BDT for pencil.
 * But as his balance is in negative the bank put a hold status in his account.
-* To reactivate the account he puts 50 BDT in his bank account.
+* To reactivate the account he puts 50 BDT in his bank account.   
+
 So his account will now have 45 BDT. But there was a series of events happned at the bank server. As we are using event sourcing we can see all the events happned on his account.   
 
 This is the result of `GET bank-accounts/{accountNumber}/envents` endpoint: 
