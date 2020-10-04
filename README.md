@@ -1,13 +1,10 @@
-# Event Sourcing with Axon and CQRS in Spring Boot
+# Event Sourcing with Axon in Spring Boot
 
 This is a demo project for learning event sourcing with axon framework and cqrs desing pattern.
 Swagger api doucmentation framework is also implementated for learning purpose.
 
 ## What is event Sourcing?
 Event sourcing is a way to store events that occur in a business domain. For instance, In this demo project it is solving a banking domain problem. So, every events that occur in the domain needs to be stored for later review or audit. Event sourcing helps in such conditions, it store every event in a formatted order for recalculation or re-evaluation. So perfectly naming all the event is crucial in this type of design.
-
-## What is CQRS?
-The full form of CQRS means Command Query Responsibility Segragation. It means that a business solution should have two separate service one should only change the state of the domain and other is only responsible to provide the view of the current state of the data. Commands are responsible for the state changes in a domain and Queries are responsible to provide view data to the end user.
 
 ## What is Axon?
 Axon is a framework for solving programming challenges that arise while doing programming for Event sourcing and CQRS. It helps programmer by leveraging all the configuration and abstract them. We as a spring boot developer just have to use annotation to solve the connection puzzle. To make it more easier axon now also provide their own axon server so that we can use that server as event store(Event store is the place/database where all the events reside).
